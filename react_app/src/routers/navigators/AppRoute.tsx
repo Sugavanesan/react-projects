@@ -7,6 +7,7 @@ import BasicDetail from '../../components/forms/BasicDetail';
 import FamilyDetails from '../../components/forms/FamilyDetails';
 import PersonalDetail from '../../components/forms/PersonalDetail';
 import { RouteNavName } from '../constants/RouteNavName';
+import RegisterProvider from '../../contexts/RegisterFormContexts';
 
 const AppRoute = () => {
     return (
@@ -14,11 +15,17 @@ const AppRoute = () => {
             <Route path={RouteNavName.home} element={<Home />} />
             <Route path={RouteNavName.about} element={<About />} />
             <Route path={RouteNavName.contact} element={<Contact />} />
-            <Route path={RouteNavName.registrationForm} element={<RegistrationForm />} >
+
+            <Route path={RouteNavName.registrationForm} element={
+                <RegisterProvider>
+                    <RegistrationForm />
+                </RegisterProvider>
+            } >
                 <Route index element={<BasicDetail />} />
                 <Route path={RouteNavName.familyDetailsForm} element={<FamilyDetails />} />
                 <Route path={RouteNavName.personalForm} element={<PersonalDetail />} />
             </Route>
+
         </Routes>
     );
 }
