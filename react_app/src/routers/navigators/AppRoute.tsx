@@ -3,14 +3,22 @@ import Home from '../../components/pages/Homepage';
 import About from '../../components/pages/AboutPage';
 import Contact from '../../components/pages/Contactpage';
 import RegistrationForm from '../../components/pages/RegistrationForm';
+import BasicDetail from '../../components/forms/BasicDetail';
+import FamilyDetails from '../../components/forms/FamilyDetails';
+import PersonalDetail from '../../components/forms/PersonalDetail';
+import { RouteNavName } from '../constants/RouteNavName';
 
 const AppRoute = () => {
     return (
         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="register" element={<RegistrationForm />} />
+            <Route path={RouteNavName.home} element={<Home />} />
+            <Route path={RouteNavName.about} element={<About />} />
+            <Route path={RouteNavName.contact} element={<Contact />} />
+            <Route path={RouteNavName.registrationForm} element={<RegistrationForm />} >
+                <Route index element={<BasicDetail />} />
+                <Route path={RouteNavName.familyDetailsForm} element={<FamilyDetails />} />
+                <Route path={RouteNavName.personalForm} element={<PersonalDetail />} />
+            </Route>
         </Routes>
     );
 }

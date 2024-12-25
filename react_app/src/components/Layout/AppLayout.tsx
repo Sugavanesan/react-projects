@@ -1,5 +1,4 @@
 import React, { FC, PropsWithChildren } from 'react';
-import AppRoute from '../../routers/navigators/AppRoute';
 import Header from './Header';
 import AppNavbar from '../../routers/navigators/AppNavbar';
 import Footer from './Footer';
