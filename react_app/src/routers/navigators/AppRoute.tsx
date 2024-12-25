@@ -15,19 +15,25 @@ const AppRoute = () => {
             <Route path={RouteNavName.home} element={<Home />} />
             <Route path={RouteNavName.about} element={<About />} />
             <Route path={RouteNavName.contact} element={<Contact />} />
-
-            <Route path={RouteNavName.registrationForm} element={
-                <RegisterProvider>
-                    <RegistrationForm />
-                </RegisterProvider>
-            } >
-                <Route index element={<BasicDetail />} />
-                <Route path={RouteNavName.familyDetailsForm} element={<FamilyDetails />} />
-                <Route path={RouteNavName.personalForm} element={<PersonalDetail />} />
-            </Route>
-
+            {
+                RegistrationRoute()
+            }
         </Routes>
     );
+}
+
+const RegistrationRoute = () => {
+    return (
+        <Route path={RouteNavName.registrationForm} element={
+            <RegisterProvider>
+                <RegistrationForm />
+            </RegisterProvider>
+        } >
+            <Route index element={<BasicDetail />} />
+            <Route path={RouteNavName.familyDetailsForm} element={<FamilyDetails />} />
+            <Route path={RouteNavName.personalForm} element={<PersonalDetail />} />
+        </Route>
+    )
 }
 
 export default AppRoute;

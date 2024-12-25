@@ -7,16 +7,29 @@ const RegistrationForm = () => {
 
     const navigate = useNavigate();
     const locate=useLocation()
-
+    console.log('regiter render')
+    const handleSubmit=()=>{
+        switch (locate.pathname) {
+            case RouteNavName.registrationForm:
+                navigate(RouteNavName.familyDetailsForm);
+                break;
+            case RouteNavName.familyDetailsForm:
+                navigate(RouteNavName.personalForm);
+                break
+            default:
+                navigate(RouteNavName.home)
+                break;
+        }
+    }
 
     return (
         <div>
             <div className='text-center' >
                 <span>Registration Form</span>
             </div>
-            <Outlet />
+            <Outlet context={{handleSubmit}} />
             <div className='text-center' >
-                <Button variant='primary' onClick={() => {
+                <Button variant='primary' type='submit' onClick={() => {
                     switch (locate.pathname) {
                         case RouteNavName.registrationForm:
                             navigate(RouteNavName.familyDetailsForm);
