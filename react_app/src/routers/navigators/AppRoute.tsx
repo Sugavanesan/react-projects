@@ -8,13 +8,20 @@ import FamilyDetails from '../../components/forms/FamilyDetails';
 import PersonalDetail from '../../components/forms/PersonalDetail';
 import { RouteNavName } from '../constants/RouteNavName';
 import RegisterProvider from '../../contexts/RegisterFormContexts';
+import DetailsPage from '../../components/pages/DetailsPage';
+import MatchesPage from '../../components/pages/MatchesPage';
 
 const AppRoute = () => {
     return (
         <Routes>
-            <Route path={RouteNavName.home} element={<Home />} />
+            <Route path={'/'} element={<Home />} />
             <Route path={RouteNavName.about} element={<About />} />
             <Route path={RouteNavName.contact} element={<Contact />} />
+
+            <Route path={'/matches'} element={<MatchesPage />} />
+            <Route path={"/details"} element={<DetailsPage />} />
+
+
             {
                 RegistrationRoute()
             }

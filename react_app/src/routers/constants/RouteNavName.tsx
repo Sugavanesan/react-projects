@@ -1,5 +1,5 @@
 
-type RouteNameType = 'home' | 'about' | 'contact' | 'registrationForm' | 'familyDetailsForm' | 'personalForm'
+type RouteNameType = 'home' | 'about' | 'contact' | 'registrationForm' | 'familyDetailsForm' | 'personalForm' | 'detailsPage' |'matches';
 type RouteNavNameType = Record<RouteNameType, string>
 
 export const RouteNavName: RouteNavNameType = {
@@ -9,4 +9,6 @@ export const RouteNavName: RouteNavNameType = {
     registrationForm: '/register',
     familyDetailsForm: '/register/familyForm',
     personalForm: '/register/personalForm',
+    matches: '/matches',
+    detailsPage: '/details'
 };
